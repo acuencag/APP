@@ -3,9 +3,11 @@
 import streamlit as st
 from collections import defaultdict
 
-st.title("Cuestionario: ¿Qué empresa del Grupo Calaf va más contigo?")
+st.image("logo.png", width=150)
 
-st.write("Responde las siguientes preguntas:")
+st.title("Qüestionari: Quina empresa del Grup Calaf va més amb tu?")
+
+st.write("Respon les preguntes següents:")
 
 
 # Diccionario para puntajes
@@ -14,65 +16,48 @@ puntajes = defaultdict(int)
 # Mapas de relación entre respuestas y empresas
 relaciones = {
     1: [
-        ("Obra civil o edificación tradicional", ["Calaf Constructora", "Calaf Trenching"]),
-        ("Taller mecánico o planta de fabricación", ["Calaf Industrial", "Nextrencher"]),
-        ("Oficinas tecnológicas e innovación", ["PICVISA Machine Vision Systems", "CICSA", "CIC3"]),
-        ("Espacios naturales o medioambientales", ["DAGA", "Transparenta", "Ambitek"])
+        ("Edificació residencial o pública", ["Calaf Constructora", "Serom"]),
+        ("Obra civil i urbanitzacions", ["Calaf Constructora", "Serom"]),
+        ("Instal·lació de xarxes de serveis bàsics ", ["Calaf Trenching", "Calaf GmbH"]),
+        ("Tractament i gestió d’aigües", ["DAGA", "Transparenta"]),
+        ("Automatització de processos industrials", ["Calaf Industrial"])
     ],
     2: [
-        ("Me gusta ver cómo las cosas toman forma desde cero", ["Calaf Constructora", "Calaf Trenching"]),
-        ("Disfruto buscando soluciones técnicas a problemas complejos", ["Calaf Industrial", "Nextrencher"]),
-        ("Me apasiona la sostenibilidad y el futuro verde", ["DAGA", "Transparenta", "Ambitek"]),
-        ("Me interesa la robótica, la visión artificial o el software", ["PICVISA Machine Vision Systems", "CICSA", "CIC3"])
+        ("Projectes de construcció d’habitatges", ["Ciutat Àgora"]),
+        ("Sectors d’energia i sostenibilitat", ["Astralcad Energia"]),
+        ("Tecnologia d'automatització i indústria", ["Calaf Industrial", "PICVISA"]),
+        ("Gestió de residus i reciclatge innovador", ["PICVISA"]),
+        ("Producció i distribució de materials de construcció", ["Pemacsa"])
     ],
     3: [
-        ("La construcción de un puente o carretera", ["Calaf Constructora"]),
-        ("El diseño de maquinaria industrial", ["Calaf Industrial", "Nextrencher"]),
-        ("Un sistema de tratamiento de agua", ["DAGA", "Transparenta"]),
-        ("Un sistema de separación automática de residuos con IA", ["PICVISA Machine Vision Systems", "CIC3"])
+        ("Constructora gran amb projectes d’infraestructures", ["Calaf Constructora","Serom"]),
+        ("Empresa de tecnologia aplicada a processos industrials", ["Calaf Industrial", "PICVISA"]),
+        ("Especialistes en medi ambient i tractament d’aigües", ["DAGA", "Transparenta"]),
+        ("Empresa d’energia renovable", ["Astralcad Energia"]),
+        ("Promotora immobiliària", ["Ciutat Àgora"])
     ],
     4: [
-        ("Estructura", ["Calaf Constructora"]),
-        ("Ingeniería", ["Calaf Industrial"]),
-        ("Innovación", ["PICVISA Machine Vision Systems", "CICSA"]),
-        ("Medio ambiente", ["DAGA", "Ambitek"])
+        ("Liderar obres de construcció en obra civil", ["Serom","Calaf Constructora"]),
+        ("Desenvolupar nous sistemes d’automatització ", ["Calaf Industrial"]),
+        ("Innovar en la separació òptica de materials", ["PICVISA"]),
+        ("Participar en la gestió sostenible de l'aigua", ["DAGA", "Transparenta"]),
+        ("Implementar nous sistemes d’eficiència energètica", ["Astralcad Energia"])
     ],
     5: [
-        ("Ver resultados físicos de tu esfuerzo", ["Calaf Constructora"]),
-        ("Resolver problemas técnicos complejos", ["Calaf Industrial"]),
-        ("Participar en el desarrollo de nuevas tecnologías", ["PICVISA Machine Vision Systems", "CICSA"]),
-        ("Mejorar el impacto ambiental", ["DAGA", "Transparenta"])
+        ("Obra exterior i moviment de terres", ["Calaf Trenching","Calaf GmbH"]),
+        ("Oficines tècniques d’enginyeria i projectes", ["Calaf Industrial","DAGA"]),
+        ("Laboratoris de recerca i desenvolupament", ["PICVISA"]),
+        ("Entorns comercials de materials i equipaments", ["Pemacsa"]),
+        ("Empreses de promoció d'habitatge", ["Ciutat Àgora"])
     ],
     6: [
-        ("Administraciones públicas y constructoras", ["Calaf Constructora", "Calaf Trenching"]),
-        ("Empresas industriales", ["Calaf Industrial", "Nextrencher"]),
-        ("Ayuntamientos o empresas de aguas", ["DAGA", "Ambitek"]),
-        ("Centros de reciclaje o laboratorios", ["PICVISA Machine Vision Systems", "CIC3"])
-    ],
-    7: [
-        ("Coordinar una obra", ["Calaf Constructora"]),
-        ("Diseñar piezas en CAD", ["Calaf Industrial", "Nextrencher"]),
-        ("Programar sistemas automáticos", ["CICSA", "PICVISA Machine Vision Systems"]),
-        ("Supervisar una planta de tratamiento", ["DAGA", "Transparenta"])
-    ],
-    8: [
-        ("Construcción sostenible", ["Calaf Constructora", "Ambitek"]),
-        ("Tecnología industrial", ["Calaf Industrial", "Nextrencher"]),
-        ("Gestión de agua", ["DAGA", "Transparenta"]),
-        ("Inteligencia artificial aplicada al reciclaje", ["PICVISA Machine Vision Systems", "CIC3"])
-    ],
-    9: [
-        ("Jefe/a de obra", ["Calaf Constructora"]),
-        ("Técnico/a de diseño y fabricación", ["Calaf Industrial"]),
-        ("Ingeniero/a de automatización", ["CICSA", "CIC3"]),
-        ("Especialista en medioambiente o I+D", ["Ambitek", "DAGA"])
-    ],
-    10: [
-        ("Ingeniería civil o arquitectura técnica", ["Calaf Constructora", "Calaf Trenching"]),
-        ("Ingeniería mecánica o eléctrica", ["Calaf Industrial", "Nextrencher"]),
-        ("Ingeniería ambiental o química", ["DAGA", "Transparenta"]),
-        ("Robótica, IA o visión artificial", ["PICVISA Machine Vision Systems", "CIC3"])
+        ("Participar en l'execució d'una obra important", ["Calaf Constructora", "Serom"]),
+        ("Formar part d'un equip d'innovació tecnològica ", ["Calaf Industrial", "PICVISA"]),
+        ("Desenvolupar solucions per a la gestió d'aigua sostenible", ["DAGA", "Transparenta"]),
+        ("Impulsar projectes d'energies renovables", ["Astralcad Energia"]),
+        ("Gestionar projectes de promoció residencial", ["Ciutat Àgora"])
     ]
+    
 }
 
 # Función para registrar la respuesta
@@ -84,112 +69,82 @@ def registrar_respuesta(numero_pregunta, respuesta):
 
 # Pregunta 1
 pregunta1 = st.radio(
-    "¿Qué tipo de entorno laboral te atrae más?",
-    ["Obra civil o edificación tradicional", 
-     "Taller mecánico o planta de fabricación", 
-     "Oficinas tecnológicas e innovación",
-     "Espacios naturales o medioambientales"],index=None
+    "En quin tipus de primer projecte t'agradaria començar a treballar?",
+    ["Edificació residencial o pública", 
+     "Obra civil i urbanitzacions", 
+     "Instal·lació de xarxes de serveis bàsics",
+     "Tractament i gestió d’aigües",
+     "Automatització de processos industrials"],index=None
 )
 registrar_respuesta(1, pregunta1)
 
 # Pregunta 2
 pregunta2 = st.radio(
-    "¿Con qué frase te identificas más?",
-    ["Me gusta ver cómo las cosas toman forma desde cero", 
-     "Disfruto buscando soluciones técnicas a problemas complejos", 
-     "Me apasiona la sostenibilidad y el futuro verde",
-     "Me interesa la robótica, la visión artificial o el software"],index=None
+    "Quin àmbit creus que pot impulsar més la teva carrera professional inicial?",
+    ["Projectes de construcció d’habitatges", 
+     "Sectors d’energia i sostenibilitat", 
+     "Tecnologia d'automatització i indústria",
+     "Gestió de residus i reciclatge innovador",
+     "Producció i distribució de materials de construcció"],index=None
 )
 registrar_respuesta(2, pregunta2)
 
 
 # Pregunta 3
 pregunta3 = st.radio(
-    "¿Qué tipo de proyecto te ilusiona más liderar?",
-    ["La construcción de un puente o carretera", 
-     "El diseño de maquinaria industrial", 
-     "Un sistema de tratamiento de agua",
-     "Un sistema de separación automática de residuos con IA"],index=None
+    "Quin tipus d'empresa t’agradaria per fer pràctiques o començar la teva primera feina?",
+    ["Constructora gran amb projectes d’infraestructures", 
+     "Empresa de tecnologia aplicada a processos industrials", 
+     "Especialistes en medi ambient i tractament d’aigües",
+     "Empresa d’energia renovable",
+     "Promotora immobiliària"],index=None
 )
 registrar_respuesta(3, pregunta3)
 
 pregunta4 = st.radio(
-    "¿Cuál de estas palabras te representa mejor?",
-    ["Estructura","Ingeniería","Innovación","Medio ambiente"],index=None
+    "Quin repte t’interessa més per començar la teva trajectòria?",
+    ["Liderar obres de construcció en obra civil",
+     "Desenvolupar nous sistemes d’automatització",
+     "Innovar en la separació òptica de materials",
+     "Participar en la gestió sostenible de l'aigua",
+     "Implementar nous sistemes d’eficiència energètica"],index=None
 )
 registrar_respuesta(4, pregunta4)
 
 
 pregunta5 = st.radio(
-    "¿Qué te motiva más de un trabajo?",
-    ["Ver resultados físicos de tu esfuerzo",
-     "Resolver problemas técnicos complejos",
-     "Participar en el desarrollo de nuevas tecnologías",
-     "Mejorar el impacto ambiental"],index=None
+    "En quin entorn de treball et veus creixent?",
+    ["Obra exterior i moviment de terres",
+     "Oficines tècniques d’enginyeria i projectes",
+     "Laboratoris de recerca i desenvolupament",
+     "Entorns comercials de materials i equipaments",
+     "Empreses de promoció d'habitatge"],index=None
 )
 registrar_respuesta(5, pregunta5)
 
 
 pregunta6 = st.radio(
-    "¿Con qué tipo de clientes te gustaría trabajar?",
-    ["Administraciones públicas y constructoras",
-     "Empresas industriales", 
-     "Ayuntamientos o empresas de aguas",
-     "Centros de reciclaje o laboratorios"],index=None
+    "Quin objectiu professional a curt termini t'agradaria assolir?",
+    ["Participar en l'execució d'una obra important",
+     "Formar part d'un equip d'innovació tecnològica", 
+     "Desenvolupar solucions per a la gestió d'aigua sostenible",
+     "Impulsar projectes d'energies renovables",
+     "Gestionar projectes de promoció residencial"],index=None
 )
 registrar_respuesta(6, pregunta6)
 
 
-pregunta7 = st.radio(
-    "¿Qué preferirías hacer un día normal de trabajo?",
-    ["Coordinar una obra",
-     "Diseñar piezas en CAD", 
-     "Programar sistemas automáticos",
-     "Supervisar una planta de tratamiento"],index=None
-)
-registrar_respuesta(7, pregunta7)
-
-
-pregunta8 = st.radio(
-    "¿Qué te parece más atractivo?",
-    ["Construcción sostenible", 
-     "Tecnología industrial",
-     "Gestión de agua",
-     "Inteligencia artificial aplicada al reciclaje"],index=None
-)
-registrar_respuesta(8, pregunta8)
-
-
-pregunta9 = st.radio(
-    "¿Cuál sería tu papel ideal?",
-    ["Jefe/a de obra",
-     "Técnico/a de diseño y fabricación",
-     "Ingeniero/a de automatización",
-     "Especialista en medioambiente o I+D"],index=None
-)
-registrar_respuesta(9, pregunta9)
-
-
-pregunta10 = st.radio(
-    "¿Qué tipo de formación o intereses tienes?",
-    ["Ingeniería civil o arquitectura técnica",
-     "Ingeniería mecánica o eléctrica",
-     "Ingeniería ambiental o química",
-     "Robótica, IA o visión artificial"],index=None
-)
-registrar_respuesta(10, pregunta10)
-
 
 # Botón para enviar
-if st.button("Enviar respuestas"):
-    st.subheader("Resultado:")
+if st.button("Enviar respostes"):
+    st.subheader("Resultat:")
     max_puntaje = max(puntajes.values())
     empresas_afines = [empresa for empresa, puntos in puntajes.items() if puntos == max_puntaje]
 
     for empresa in sorted(puntajes, key=puntajes.get, reverse=True):
-        st.write(f"{empresa}: {puntajes[empresa]} puntos")
+        st.write(f"{empresa}: {puntajes[empresa]} punts")
 
-    st.markdown("### 🏆 Empresa(s) más afín(es):")
+    st.markdown("### 🏆 Empresa(s) més afí(ns):")
     for empresa in empresas_afines:
         st.success(empresa)
 
