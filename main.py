@@ -3,9 +3,9 @@
 import streamlit as st
 from collections import defaultdict
 
-st.image("logo.png", width=150)
+st.image("logo1.png", width=150)
 
-st.title("Qüestionari: Quina empresa del Grup Calaf va més amb tu?")
+st.title("Qüestionari: Quina empresa del Grup Calaf encaixa més amb tu?")
 
 st.write("Respon les preguntes següents:")
 
@@ -18,13 +18,13 @@ relaciones = {
     1: [
         ("Edificació residencial o pública", ["Calaf Constructora", "Serom"]),
         ("Obra civil i urbanitzacions", ["Calaf Constructora", "Serom"]),
-        ("Instal·lació de xarxes de serveis bàsics ", ["Calaf Trenching", "Calaf GmbH"]),
+        ("Instal·lació de xarxes de serveis bàsics ", ["Calaf Trenching"]),
         ("Tractament i gestió d’aigües", ["DAGA", "Transparenta"]),
         ("Automatització de processos industrials", ["Calaf Industrial"])
     ],
     2: [
-        ("Projectes de construcció d’habitatges", ["Ciutat Àgora"]),
-        ("Sectors d’energia i sostenibilitat", ["Astralcad Energia"]),
+        ("Projectes de construcció d’habitatges", ["Calaf Constructora", "Serom"]),
+        ("Sectors d’energia i sostenibilitat", ["PICVISA"]),
         ("Tecnologia d'automatització i indústria", ["Calaf Industrial", "PICVISA"]),
         ("Gestió de residus i reciclatge innovador", ["PICVISA"]),
         ("Producció i distribució de materials de construcció", ["Pemacsa"])
@@ -33,29 +33,26 @@ relaciones = {
         ("Constructora gran amb projectes d’infraestructures", ["Calaf Constructora","Serom"]),
         ("Empresa de tecnologia aplicada a processos industrials", ["Calaf Industrial", "PICVISA"]),
         ("Especialistes en medi ambient i tractament d’aigües", ["DAGA", "Transparenta"]),
-        ("Empresa d’energia renovable", ["Astralcad Energia"]),
-        ("Promotora immobiliària", ["Ciutat Àgora"])
+        ("Empresa de gestió i subministrament de materials per a obrae", ["Pemacsa"])
     ],
+
     4: [
         ("Liderar obres de construcció en obra civil", ["Serom","Calaf Constructora"]),
         ("Desenvolupar nous sistemes d’automatització ", ["Calaf Industrial"]),
         ("Innovar en la separació òptica de materials", ["PICVISA"]),
-        ("Participar en la gestió sostenible de l'aigua", ["DAGA", "Transparenta"]),
-        ("Implementar nous sistemes d’eficiència energètica", ["Astralcad Energia"])
+        ("Participar en la gestió sostenible de l'aigua", ["DAGA", "Transparenta"])
     ],
     5: [
-        ("Obra exterior i moviment de terres", ["Calaf Trenching","Calaf GmbH"]),
+        ("Obra exterior i moviment de terres", ["Calaf Trenching"]),
         ("Oficines tècniques d’enginyeria i projectes", ["Calaf Industrial","DAGA"]),
         ("Laboratoris de recerca i desenvolupament", ["PICVISA"]),
-        ("Entorns comercials de materials i equipaments", ["Pemacsa"]),
-        ("Empreses de promoció d'habitatge", ["Ciutat Àgora"])
+        ("Entorns comercials de materials i equipaments", ["Pemacsa"])
     ],
     6: [
         ("Participar en l'execució d'una obra important", ["Calaf Constructora", "Serom"]),
         ("Formar part d'un equip d'innovació tecnològica ", ["Calaf Industrial", "PICVISA"]),
         ("Desenvolupar solucions per a la gestió d'aigua sostenible", ["DAGA", "Transparenta"]),
-        ("Impulsar projectes d'energies renovables", ["Astralcad Energia"]),
-        ("Gestionar projectes de promoció residencial", ["Ciutat Àgora"])
+        ("Gestionar projectes de promoció residencial", ["Calaf Constructora", "Serom"])
     ]
     
 }
@@ -69,7 +66,7 @@ def registrar_respuesta(numero_pregunta, respuesta):
 
 # Pregunta 1
 pregunta1 = st.radio(
-    "En quin tipus de primer projecte t'agradaria començar a treballar?",
+    "En quin tipus de projecte t'agradaria començar a treballar?",
     ["Edificació residencial o pública", 
      "Obra civil i urbanitzacions", 
      "Instal·lació de xarxes de serveis bàsics",
@@ -92,12 +89,11 @@ registrar_respuesta(2, pregunta2)
 
 # Pregunta 3
 pregunta3 = st.radio(
-    "Quin tipus d'empresa t’agradaria per fer pràctiques o començar la teva primera feina?",
+    "A quin tipus d'empresa t’agradaria per fer pràctiques o començar la teva primera feina?",
     ["Constructora gran amb projectes d’infraestructures", 
      "Empresa de tecnologia aplicada a processos industrials", 
      "Especialistes en medi ambient i tractament d’aigües",
-     "Empresa d’energia renovable",
-     "Promotora immobiliària"],index=None
+     "Empresa de gestió i subministrament de materials per a obra"],index=None
 )
 registrar_respuesta(3, pregunta3)
 
@@ -106,8 +102,7 @@ pregunta4 = st.radio(
     ["Liderar obres de construcció en obra civil",
      "Desenvolupar nous sistemes d’automatització",
      "Innovar en la separació òptica de materials",
-     "Participar en la gestió sostenible de l'aigua",
-     "Implementar nous sistemes d’eficiència energètica"],index=None
+     "Participar en la gestió sostenible de l'aigua"],index=None
 )
 registrar_respuesta(4, pregunta4)
 
@@ -117,8 +112,7 @@ pregunta5 = st.radio(
     ["Obra exterior i moviment de terres",
      "Oficines tècniques d’enginyeria i projectes",
      "Laboratoris de recerca i desenvolupament",
-     "Entorns comercials de materials i equipaments",
-     "Empreses de promoció d'habitatge"],index=None
+     "Entorns comercials de materials i equipaments"],index=None
 )
 registrar_respuesta(5, pregunta5)
 
@@ -128,7 +122,6 @@ pregunta6 = st.radio(
     ["Participar en l'execució d'una obra important",
      "Formar part d'un equip d'innovació tecnològica", 
      "Desenvolupar solucions per a la gestió d'aigua sostenible",
-     "Impulsar projectes d'energies renovables",
      "Gestionar projectes de promoció residencial"],index=None
 )
 registrar_respuesta(6, pregunta6)
