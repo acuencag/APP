@@ -143,5 +143,5 @@ if st.button("Enviar respostes"):
 
     if max_puntaje == 10:
         st.balloons()
-    st.write("Un cop finalitzat el formulari apropat al nostre stand per confirmar que has estrat al sorteig.")
+    st.write("Un cop finalitzat el formulari apropat al nostre estand per confirmar que has entrat al sorteig.")
     st.markdown("#### IMPORTANT: El sorteig acaba el dimecres 7 a les 12:00!!")
